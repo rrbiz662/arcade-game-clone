@@ -53,21 +53,38 @@ class Player {
     handleInput(keyCode){
         switch(keyCode){
             case "up":
-            this.y--;
+            if(Player.isValidPos(this.y - 1, maxYPos, -.5))
+                this.y--;
             break;
             case "down":
-            this.y++;
+            if(Player.isValidPos(this.y + 1, maxYPos, -.5))
+                this.y++;
             break;
             case "left":
-            this.x--;
+            if(Player.isValidPos(this.x - 1, maxXPos))
+                this.x--;
             break;
             case "right":
-            this.x++;
+            if(Player.isValidPos(this.x + 1, maxXPos))
+                this.x++;
             break;
         }
     }
-}
 
+    /**
+     * @description Checks to make sure the new player position will fall
+     * within the bounds of the game board.
+     * @param pos The new player position.
+     * @param maxPos The max position the player is allowed to move to.
+     * @param minPos The min position the player is allowed to move to.
+     */
+    static isValidPos(pos, maxPos, minPos = 0){
+        if(pos >= minPos && pos <= maxPos)
+            return true;
+        else
+            return false;
+    }
+}
 
 // Listen for key presses and send the keys to the
 // Player.handleInput() method.
@@ -87,5 +104,7 @@ document.addEventListener("keyup", function(e) {
 // Place the player object in a variable called player
 let allEnemies = [new Enemy()];
 let player = new Player();
+const maxXPos = 4;
+const maxYPos = 5;
 
 
