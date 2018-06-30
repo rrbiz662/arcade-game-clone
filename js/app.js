@@ -54,7 +54,10 @@ class Player {
         switch(keyCode){
             case "up":
             if(Player.isValidPos(this.y - 1, maxYPos, -.5))
+            {
                 this.y--;
+                this.checkWinner();
+            }
             break;
             case "down":
             if(Player.isValidPos(this.y + 1, maxYPos, -.5))
@@ -68,6 +71,21 @@ class Player {
             if(Player.isValidPos(this.x + 1, maxXPos))
                 this.x++;
             break;
+        }
+    }
+
+    /**
+     * @description Checks if the player has won.
+     */
+    checkWinner(){
+        // Check if we have a winner.
+        if(this.y === -.5){
+            // Need time to draw the player in the winning location.
+            setTimeout(function(p){
+                alert("You Won!!!");
+                p.x = 2;
+                p.y = 4.5;
+            }, 100, this);
         }
     }
 
