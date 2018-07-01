@@ -16,6 +16,17 @@ class Enemy{
      */
     update(dt){
         this.x = this.x + (dt * this.speed);
+
+        const enemyX = Math.floor(this.x);
+        const enemyY = Math.floor(this.y);
+        const playerX = Math.floor(player.x);
+        const playerY = Math.floor(player.y);
+
+        if(enemyX === playerX && enemyY === playerY)
+        {
+            player.x = 2;
+            player.y = 4.5;
+        }
     }
 
     /**
@@ -120,6 +131,11 @@ class Player {
     }
 }
 
+let allEnemies = [];
+let player = new Player();
+const maxXPos = 4;
+const maxYPos = 5;
+
 // Listen for key presses and send the keys to the
 // Player.handleInput() method.
 document.addEventListener("keyup", function(e) {
@@ -133,10 +149,7 @@ document.addEventListener("keyup", function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-let allEnemies = [new Enemy()];
-let player = new Player();
-const maxXPos = 4;
-const maxYPos = 5;
+// Creates an enemy ever .5 second.
+setInterval(function(){
+    allEnemies.push(new Enemy());
+}, 500);
