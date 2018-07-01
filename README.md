@@ -1,6 +1,24 @@
-frontend-nanodegree-arcade-game
-===============================
+# arcade-game-clone
+This project consists of a web page in which users can play a version of the arcade classic `Frogger`. The user must navigate their character accross the gameboard grid provided without colliding with any of the bugs moving accross the screen. When the user reaches the water the game is won. If a user collides with a bug while trying to cross the sidewalk, they are sent back to the starting position.
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+The `Frogger` clone game demonstrates, creating and using `classes` with `JavaScript` version `ES6`. It includes various class `instance` methods and `static` methods that allow for the game to function properly. Additionally, various class `properties` are created and used throughout the game.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Getting Started
+These instructions will get you a copy of the project on your local machine for development and/or testing purposes.
+
+### Installing
+To get a copy of the project to work on locally, the user can either `download the zip` or `clone the repository`.
+
+## Run the Project
+In order to run the project after downloading it:
+1) Navigate to the directory where project exists.
+2) Right-click the HTML file.
+3) Open with the desired browser.
+
+## Built with
+* `HTML5`
+* `CSS3`
+* `JavaScript - ES6`
+
+## Authors
+* Ricardo Rivera
