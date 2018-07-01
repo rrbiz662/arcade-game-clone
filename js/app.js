@@ -24,8 +24,8 @@ class Enemy{
 
         if(enemyX === playerX && enemyY === playerY)
         {
-            player.x = 2;
-            player.y = 4.5;
+            player.x = playerInitPosX;
+            player.y = playerInitPosY;
         }
     }
 
@@ -55,8 +55,8 @@ class Player {
      */
     constructor(){
         this.player = "images/char-boy.png";
-        this.x = 2;
-        this.y = 4.5;
+        this.x = playerInitPosX;
+        this.y = playerInitPosY;
     }
 
     /**
@@ -110,8 +110,8 @@ class Player {
             // Need time to draw the player in the winning location.
             setTimeout(function(p){
                 alert("You Won!!!");
-                p.x = 2;
-                p.y = 4.5;
+                p.x = playerInitPosX;
+                p.y = playerInitPosY;
             }, 100, this);
         }
     }
@@ -131,10 +131,12 @@ class Player {
     }
 }
 
-let allEnemies = [];
-let player = new Player();
 const maxXPos = 4;
 const maxYPos = 5;
+const playerInitPosX = 2;
+const playerInitPosY = 4.5;
+let allEnemies = [];
+let player = new Player();
 
 // Listen for key presses and send the keys to the
 // Player.handleInput() method.
