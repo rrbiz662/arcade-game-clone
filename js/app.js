@@ -5,6 +5,9 @@ class Enemy{
     constructor(){
         // The image for our enemies.
         this.sprite = "images/enemy-bug.png";
+        this.x = 0;
+        this.y = Enemy.getRandomNum(3, .75);
+        this.speed = Enemy.getRandomNum(5, 1);
     }
 
     /**
@@ -12,13 +15,26 @@ class Enemy{
      * @param dt A time delta between ticks.
      */
     update(dt){
+        this.x = this.x + (dt * this.speed);
     }
 
     /**
      * @description Draw the enemy on the screen.
      */
     render(){
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 83);
+    }
+
+    /**
+     * @description Gets a random number from the range provided.
+     * The incrementer/min number is used to increment the intially obtained
+     * random number. For example if 0 was returned from the random() function and
+     * the min value passed in was 1, the value returned would be 1.
+     * @param max The max number to allow.
+     * @param min The min umber to allow; will also work as the random number incrementer.
+     */
+    static getRandomNum(max, min){
+        return Math.floor(Math.random() * max) + min;
     }
 }
 
@@ -124,5 +140,3 @@ let allEnemies = [new Enemy()];
 let player = new Player();
 const maxXPos = 4;
 const maxYPos = 5;
-
-
